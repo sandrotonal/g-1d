@@ -196,7 +196,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
             className="absolute top-8 right-8"
           >
             <span className="font-mono text-[10px] text-white/20 tracking-widest">
-              ©2024
+              ©2025
             </span>
           </motion.div>
         </motion.div>

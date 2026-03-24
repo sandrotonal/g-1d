@@ -65,7 +65,7 @@ export default function ContactPage() {
               animate={{ opacity: 1, y: 0 }}
               className="font-mono text-primary text-sm tracking-[0.3em] uppercase"
             >
-              Initiate Connection // 2024
+              Initiate Connection // 2025
             </motion.span>
             <motion.h1
               initial={{ opacity: 0, y: 10 }}
@@ -234,17 +234,22 @@ export default function ContactPage() {
           {/* Stylized Map / Location */}
           <div className="space-y-6">
             <h3 className="font-headline text-xl font-bold tracking-tight">GEOGRAPHIC_ANCHOR</h3>
-            <div className="relative aspect-video w-full overflow-hidden rounded-lg grayscale opacity-60 hover:opacity-100 transition-opacity duration-700 bg-surface-container-low border border-outline-variant/20">
+            <a 
+              href="https://www.google.com/maps/place/Do%C4%9Fubeyaz%C4%B1t,+A%C4%9Fr%C4%B1" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block relative aspect-video w-full overflow-hidden rounded-lg grayscale opacity-60 hover:opacity-100 transition-opacity duration-700 bg-surface-container-low border border-outline-variant/20 group"
+            >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img alt="Stylized dark city grid" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_bDwxAyQg7HTVByBTIKT1UvySYSZyQoBOJhKBrGJPaT9MqTM1oorLwc2B5JnqKhM2x-Q2eUqAPAmgxE9VSNk4DRBY_uXh9T5JhUAlF5Kql9tcJw5_cyDd8Et7_qXFgxNwpBiRiX2C1q8IeY525hT6hgi5j79ZJuWQgiArpDflgyG-r1ehQQF5qisc05JU160qv0LikZnH1q8FT7c1CCZiNFUSPEf00y-_pl545o3F01R6_go5UhE5t9WisKIogcsJ2ZRzPaw1kP6B"/>
+              <img alt="Ağrı Doğubeyazıt cityscape" className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80" />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
               <div className="absolute bottom-6 left-6">
                 <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>location_on</span>
-                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-on-surface">Based in Ağrı, TR [UTC+3]</span>
+                  <span className="material-symbols-outlined text-primary group-hover:scale-110 transition-transform" style={{ fontVariationSettings: "'FILL' 1" }}>location_on</span>
+                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-on-surface">Based in Ağrı Doğubeyazıt, TR [UTC+3]</span>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>

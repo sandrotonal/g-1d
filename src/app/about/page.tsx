@@ -1,10 +1,22 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 export default function AboutPage() {
+  const [githubData, setGithubData] = useState<{isPrimary: boolean; opacity: number}[]>([]);
+  
+  useEffect(() => {
+    // Generate random data only on client side to avoid hydration mismatch
+    const data = Array.from({ length: 84 }).map(() => {
+      const isPrimary = Math.random() > 0.4;
+      const opacity = isPrimary ? [20, 40, 60, 80, 90][Math.floor(Math.random() * 5)] : 0;
+      return { isPrimary, opacity };
+    });
+    setGithubData(data);
+  }, []);
+  
   return (
     <div className="pt-32 pb-20 px-6 max-w-screen-xl mx-auto relative overflow-hidden">
       {/* Background Ambient Glows */}
@@ -21,7 +33,7 @@ export default function AboutPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="font-mono text-primary text-sm tracking-[0.3em] uppercase"
               >
-                Profile // 2024
+                Profile // 2025
               </motion.span>
               <motion.h1
                 initial={{ opacity: 0, y: 10 }}
@@ -34,7 +46,7 @@ export default function AboutPage() {
             </div>
             <div className="glass-card p-6 md:p-8 rounded-xl space-y-6">
               <p className="text-lg md:text-xl text-on-surface-variant leading-relaxed">
-                I am a 20-year-old developer focused on engineering digital environments that merge <span className="text-primary">high-performance SaaS architecture</span> with <span className="text-secondary">intuitive AI intelligence</span>. My approach is architectural: I don&apos;t just write code; I design systems.
+                I am a developer based in <span className="text-primary">Ağrı, Turkey</span>, studying Computer Engineering at <span className="text-primary">Bandırma 17 Eylül University</span> (since 2023). I focus on engineering digital environments that merge <span className="text-primary">high-performance SaaS architecture</span> with <span className="text-secondary">intuitive AI intelligence</span>. My approach is architectural: I don&apos;t just write code; I design systems.
               </p>
               <p className="text-on-surface-variant leading-relaxed">
                 Specializing in the modern web ecosystem, I build scalable applications that solve complex problems through clean typography, rigorous logic, and cutting-edge tech stacks.
@@ -57,7 +69,7 @@ export default function AboutPage() {
               <div className="flex flex-col gap-2">
                 <span className="font-mono text-[10px] text-primary uppercase">Status: Operational</span>
                 <span className="font-headline font-bold text-base md:text-lg text-on-surface">Ömer Özbay</span>
-                <span className="font-mono text-[10px] md:text-xs text-on-surface-variant">Full-Stack Engineer // 20yo</span>
+                <span className="font-mono text-[10px] md:text-xs text-on-surface-variant">Full-Stack Engineer // Student</span>
               </div>
             </div>
           </div>
@@ -128,6 +140,23 @@ export default function AboutPage() {
         <div className="relative pl-8 md:pl-0">
           {/* Timeline Vertical Line */}
           <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-primary to-transparent -translate-x-1/2 hidden md:block opacity-50"></div>
+
+          {/* Timeline Entry: Current - Education */}
+          <div className="relative mb-16 md:flex justify-between items-center group">
+            <div className="md:w-[45%] mb-4 md:mb-0">
+              <div className="glass-card p-6 rounded-xl border-primary/20 hover:border-primary/60 transition-all">
+                <span className="font-mono text-[10px] md:text-xs text-primary mb-2 block">2023 — Present</span>
+                <h3 className="font-headline text-xl md:text-2xl font-bold mb-2 text-on-surface">Bandırma 17 Eylül University</h3>
+                <p className="text-on-surface-variant text-sm">Studying Computer Engineering while building real-world SaaS projects and AI-integrated applications. Bridging academic knowledge with practical implementation.</p>
+              </div>
+            </div>
+            <div className="absolute left-0 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-background border-2 border-primary rounded-full z-10 hidden md:block">
+              <div className="absolute inset-1 bg-primary scale-0 group-hover:scale-100 transition-transform"></div>
+            </div>
+            <div className="md:w-[45%] pl-4 md:pl-0">
+              <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest hidden md:block">Education // Engineering</span>
+            </div>
+          </div>
 
           {/* Timeline Entry 1 */}
           <div className="relative mb-16 md:flex justify-between items-center group">
@@ -203,17 +232,23 @@ export default function AboutPage() {
 
             {/* Stylized GitHub Graph */}
             <div className="grid grid-cols-10 sm:grid-cols-14 md:grid-cols-21 lg:grid-cols-28 gap-1 md:gap-2">
-              {Array.from({ length: 84 }).map((_, i) => {
-                const isPrimary = Math.random() > 0.4;
-                const opacity = isPrimary ? [20, 40, 60, 80, 90][Math.floor(Math.random() * 5)] : 0;
-                return (
+              {githubData.length > 0 ? (
+                githubData.map((item, i) => (
                   <div
                     key={i}
-                    className={`aspect-square rounded-[2px] ${isPrimary ? 'bg-primary' : 'bg-surface-variant'}`}
-                    style={isPrimary ? { opacity: opacity / 100 } : {}}
+                    className={`aspect-square rounded-[2px] ${item.isPrimary ? 'bg-primary' : 'bg-surface-variant'}`}
+                    style={item.isPrimary ? { opacity: item.opacity / 100 } : {}}
                   ></div>
-                );
-              })}
+                ))
+              ) : (
+                // Placeholder while loading (server-side)
+                Array.from({ length: 84 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className="aspect-square rounded-[2px] bg-surface-variant"
+                  ></div>
+                ))
+              )}
             </div>
 
             <div className="mt-8 flex justify-center md:justify-start">
