@@ -1,10 +1,52 @@
 "use client";
 
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
+
+// EmailJS Configuration
+const EMAILJS_PUBLIC_KEY = 'rsVkjFCEV_9_DBFK5';
+const EMAILJS_SERVICE_ID = 'gucluyumhe';
+const EMAILJS_TEMPLATE_ID = 'template_tkh9f6w';
 
 export default function ContactPage() {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!formRef.current) return;
+    
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        EMAILJS_PUBLIC_KEY
+      );
+      
+      setSubmitStatus('success');
+      formRef.current.reset();
+      
+      // Reset status after 5 seconds
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } catch (error) {
+      console.error('Email send failed:', error);
+      setSubmitStatus('error');
+      
+      // Reset status after 5 seconds
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="pt-32 pb-20 px-6 max-w-7xl mx-auto">
       {/* Hero Section */}
@@ -47,24 +89,68 @@ export default function ContactPage() {
               <span className="w-12 h-[1px] bg-primary"></span>
               TRANSMIT MESSAGE
             </h2>
-            <form className="space-y-8">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-2 group">
                   <label className="font-mono text-[10px] uppercase tracking-widest text-on-surface-variant group-focus-within:text-primary transition-colors">Identification</label>
-                  <input className="w-full bg-surface-container-lowest border-none py-4 px-4 font-mono text-sm placeholder:text-outline-variant transition-all focus:ring-0 focus:border-l-2 focus:border-primary outline-none" placeholder="YOUR NAME" type="text" required />
+                  <input 
+                    name="name"
+                    className="w-full bg-surface-container-lowest border-none py-4 px-4 font-mono text-sm placeholder:text-outline-variant transition-all focus:ring-0 focus:border-l-2 focus:border-primary outline-none" 
+                    placeholder="YOUR NAME" 
+                    type="text" 
+                    required 
+                  />
                 </div>
                 <div className="space-y-2 group">
                   <label className="font-mono text-[10px] uppercase tracking-widest text-on-surface-variant group-focus-within:text-primary transition-colors">Protocol Address</label>
-                  <input className="w-full bg-surface-container-lowest border-none py-4 px-4 font-mono text-sm placeholder:text-outline-variant transition-all focus:ring-0 focus:border-l-2 focus:border-primary outline-none" placeholder="EMAIL@DOMAIN.COM" type="email" required />
+                  <input 
+                    name="email"
+                    className="w-full bg-surface-container-lowest border-none py-4 px-4 font-mono text-sm placeholder:text-outline-variant transition-all focus:ring-0 focus:border-l-2 focus:border-primary outline-none" 
+                    placeholder="EMAIL@DOMAIN.COM" 
+                    type="email" 
+                    required 
+                  />
                 </div>
               </div>
               <div className="space-y-2 group">
                 <label className="font-mono text-[10px] uppercase tracking-widest text-on-surface-variant group-focus-within:text-primary transition-colors">Transmission Payload</label>
-                <textarea className="w-full bg-surface-container-lowest border-none py-4 px-4 font-mono text-sm placeholder:text-outline-variant transition-all focus:ring-0 focus:border-l-2 focus:border-primary outline-none resize-none" placeholder="DESCRIBE THE ARCHITECTURAL CHALLENGE..." rows={6} required></textarea>
+                <textarea 
+                  name="message"
+                  className="w-full bg-surface-container-lowest border-none py-4 px-4 font-mono text-sm placeholder:text-outline-variant transition-all focus:ring-0 focus:border-l-2 focus:border-primary outline-none resize-none" 
+                  placeholder="DESCRIBE THE ARCHITECTURAL CHALLENGE..." 
+                  rows={6} 
+                  required
+                ></textarea>
               </div>
-              <button className="group relative inline-flex items-center gap-4 bg-primary text-on-primary-fixed px-10 py-5 font-headline font-bold text-lg hover:shadow-[0_0_30px_rgba(129,236,255,0.4)] transition-all active:scale-95 w-full sm:w-auto justify-center" type="submit">
-                INITIATE CONNECTION
-                <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span>
+              
+              {/* Status Messages */}
+              {submitStatus === 'success' && (
+                <div className="p-4 bg-primary/10 border border-primary/30 rounded-md">
+                  <p className="text-primary font-mono text-sm">✓ Message transmitted successfully! I&apos;ll respond shortly.</p>
+                </div>
+              )}
+              {submitStatus === 'error' && (
+                <div className="p-4 bg-error/10 border border-error/30 rounded-md">
+                  <p className="text-error font-mono text-sm">✗ Transmission failed. Please try again or contact directly.</p>
+                </div>
+              )}
+              
+              <button 
+                className="group relative inline-flex items-center gap-4 bg-primary text-on-primary-fixed px-10 py-5 font-headline font-bold text-lg hover:shadow-[0_0_30px_rgba(129,236,255,0.4)] transition-all active:scale-95 w-full sm:w-auto justify-center disabled:opacity-50 disabled:cursor-not-allowed" 
+                type="submit"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <>
+                    TRANSMITTING...
+                    <span className="material-symbols-outlined animate-spin">progress_activity</span>
+                  </>
+                ) : (
+                  <>
+                    INITIATE CONNECTION
+                    <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span>
+                  </>
+                )}
               </button>
             </form>
           </div>
