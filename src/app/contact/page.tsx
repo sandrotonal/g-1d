@@ -163,10 +163,10 @@ export default function ContactPage() {
             <h3 className="font-headline text-xl font-bold tracking-tight">DIRECT_NODES</h3>
             <div className="grid grid-cols-1 gap-4">
               {/* GitHub */}
-              <a className="glass-panel border border-outline-variant/10 p-6 flex items-center justify-between group hover:border-primary/40 transition-all duration-500" href="https://github.com/omerozbay" target="_blank" rel="noopener noreferrer">
+              <a className="glass-panel border border-outline-variant/10 p-6 flex items-center justify-between group hover:border-primary/40 transition-all duration-500" href="https://github.com/sandrotonal" target="_blank" rel="noopener noreferrer">
                 <div className="flex items-center gap-6">
                   <div className="w-12 h-12 flex items-center justify-center bg-surface-container-highest group-hover:bg-primary/10 transition-colors">
-                    <span className="material-symbols-outlined text-on-surface-variant group-hover:text-primary">terminal</span>
+                    <span className="material-symbols-outlined text-on-surface-variant group-hover:text-primary">code</span>
                   </div>
                   <div>
                     <p className="font-headline font-bold text-lg text-on-surface">GitHub</p>
@@ -189,10 +189,10 @@ export default function ContactPage() {
                 <span className="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:translate-x-1 transition-all">north_east</span>
               </a>
               {/* Twitter/X */}
-              <a className="glass-panel border border-outline-variant/10 p-6 flex items-center justify-between group hover:border-primary/40 transition-all duration-500" href="#" target="_blank" rel="noopener noreferrer">
+              <a className="glass-panel border border-outline-variant/10 p-6 flex items-center justify-between group hover:border-primary/40 transition-all duration-500" href="https://x.com/gucluyumhe" target="_blank" rel="noopener noreferrer">
                 <div className="flex items-center gap-6">
                   <div className="w-12 h-12 flex items-center justify-center bg-surface-container-highest group-hover:bg-primary/10 transition-colors">
-                    <span className="material-symbols-outlined text-on-surface-variant group-hover:text-primary">share</span>
+                    <span className="material-symbols-outlined text-on-surface-variant group-hover:text-primary">alternate_email</span>
                   </div>
                   <div>
                     <p className="font-headline font-bold text-lg text-on-surface">X / Twitter</p>
