@@ -65,7 +65,7 @@ const Navbar = () => {
         </nav>
 
         <div className="hidden md:flex items-center gap-6">
-          <Link href="https://github.com/omerozbay" target="_blank" rel="noopener noreferrer" className="material-symbols-outlined text-primary hover:bg-primary/10 hover:scale-[1.02] transition-all duration-300 p-2 rounded-sm cursor-pointer active:scale-95">terminal</Link>
+          <Link href="https://github.com/sandrotonal" target="_blank" rel="noopener noreferrer" className="material-symbols-outlined text-primary hover:bg-primary/10 hover:scale-[1.02] transition-all duration-300 p-2 rounded-sm cursor-pointer active:scale-95">code</Link>
           <Link
             href="/contact"
             className="bg-primary/10 text-primary border border-primary/20 px-6 py-2 font-headline tracking-widest uppercase text-xs hover:bg-primary hover:text-on-primary-fixed transition-all active:scale-95 duration-200"

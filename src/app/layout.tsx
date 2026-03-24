@@ -23,7 +23,10 @@ const jetBrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Ömer Özbay | Full-Stack Engineer",
-  description: "Yazılım projelerimi ve deneyimlerimi paylaştığım kişisel blog sitem",
+  description: "Software engineer building AI-powered SaaS applications and modern web experiences",
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({

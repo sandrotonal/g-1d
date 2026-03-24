@@ -12,22 +12,25 @@ const Footer = () => {
         
         <div className="flex flex-wrap justify-center gap-6 md:gap-8 uppercase tracking-widest">
           <Link href="https://github.com/sandrotonal" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-            Source
+            GitHub
           </Link>
-          <Link href="https://github.com/sandrotonal/gucluyumhe" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-            Docs
+          <Link href="https://x.com/gucluyumhe" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            Twitter/X
           </Link>
           <Link href="/contact" className="hover:text-white transition-colors">
-            Privacy
+            Contact
           </Link>
         </div>
 
         <div className="flex gap-4">
           <Link href="https://github.com/sandrotonal" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-8 md:h-8 rounded-full border border-outline-variant/30 flex items-center justify-center hover:border-primary hover:text-primary transition-all cursor-pointer">
-            <span className="material-symbols-outlined text-sm">terminal</span>
+            <span className="material-symbols-outlined text-sm">code</span>
+          </Link>
+          <Link href="https://x.com/gucluyumhe" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-8 md:h-8 rounded-full border border-outline-variant/30 flex items-center justify-center hover:border-primary hover:text-primary transition-all cursor-pointer">
+             <span className="material-symbols-outlined text-sm">alternate_email</span>
           </Link>
           <Link href="https://linkedin.com/in/omerozbay" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-8 md:h-8 rounded-full border border-outline-variant/30 flex items-center justify-center hover:border-primary hover:text-primary transition-all cursor-pointer">
-             <span className="material-symbols-outlined text-sm">alternate_email</span>
+             <span className="material-symbols-outlined text-sm">badge</span>
           </Link>
         </div>
       </div>
