@@ -80,8 +80,8 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
     return () => clearTimeout(timer);
   }, [onComplete]);
 
-  const firstName = "Omer";
-  const lastName = "Ozbay";
+  const firstName = "Ömer";
+  const lastName = "Özbay";
 
   return (
     <AnimatePresence>
