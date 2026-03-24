@@ -4,10 +4,68 @@ import Image from "next/image";
 import Link from "next/link";
 import { PostMetadata as BlogPost } from "@/utils/markdown";
 import { projects } from "@/data/projects";
+import { motion } from "framer-motion";
 
 interface HomeClientProps {
   recentPosts: BlogPost[];
 }
+
+// Letter animation variants - Tanda style
+const containerVariants = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.04,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const letterVariants = {
+  hidden: { 
+    opacity: 0,
+    y: 20,
+    scale: 0.8,
+  },
+  visible: { 
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.25,
+      ease: [0.25, 0.1, 0.25, 1] as const,
+    },
+  },
+};
+
+// Animated text component
+const AnimatedText = ({ text, className, delay = 0 }: { text: string; className?: string; delay?: number }) => {
+  const letters = text.split('');
+  
+  return (
+    <motion.span
+      className={`inline-flex flex-wrap ${className}`}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      transition={{ delayChildren: delay }}
+    >
+      {letters.map((letter, index) => (
+        <motion.span
+          key={index}
+          variants={letterVariants}
+          className="inline-block"
+          style={{ 
+            whiteSpace: letter === ' ' ? 'pre' : 'normal',
+          }}
+        >
+          {letter === ' ' ? '\u00A0' : letter}
+        </motion.span>
+      ))}
+    </motion.span>
+  );
+};
 
 export default function HomeClient({ recentPosts }: HomeClientProps) {
   const displayedPosts = recentPosts.slice(0, 3);
@@ -23,18 +81,37 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
       <section className="relative min-h-[80vh] flex items-center pt-20 overflow-hidden grid-pattern -mx-8 px-8 mb-32">
         <div className="max-w-screen-2xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
-            <div className="inline-flex items-center gap-3 px-3 py-1 bg-surface-container-highest border border-outline-variant/20 rounded-DEFAULT">
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-3 px-3 py-1 bg-surface-container-highest border border-outline-variant/20 rounded-DEFAULT"
+            >
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
               <span className="font-mono text-xs text-on-surface-variant tracking-wider uppercase">Status: Operational</span>
-            </div>
-            <h1 className="text-6xl md:text-8xl font-headline font-bold leading-[0.9] tracking-tight text-on-surface">
-              Developing the <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Future with AI</span> & SaaS
+            </motion.div>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-headline font-bold leading-[0.95] md:leading-[0.9] tracking-tight text-on-surface">
+              <AnimatedText text="Developing the" delay={0.3} />
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+                <AnimatedText text="Future with AI" delay={0.6} />
+              </span>
+              <AnimatedText text=" & SaaS" delay={0.9} />
             </h1>
-            <p className="text-xl text-on-surface-variant max-w-xl font-light leading-relaxed">
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.2 }}
+              className="text-lg sm:text-xl text-on-surface-variant max-w-xl font-light leading-relaxed"
+            >
               I am a 20-year-old Full-Stack Engineer focused on building high-performance digital architectures that merge complex logic with human-centric design.
-            </p>
-            <div className="flex flex-wrap gap-4 pt-4">
+            </motion.p>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.4 }}
+              className="flex flex-wrap gap-4 pt-4"
+            >
               <Link href="/projects" className="px-8 py-4 bg-primary text-on-primary font-bold rounded-DEFAULT hover:shadow-[0_0_30px_rgba(129,236,255,0.4)] transition-all flex items-center gap-2">
                 View My Work
                 <span className="material-symbols-outlined" data-icon="arrow_outward">arrow_outward</span>
@@ -43,7 +120,7 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
                 My Tech Stack
                 <span className="material-symbols-outlined" data-icon="terminal">terminal</span>
               </Link>
-            </div>
+            </motion.div>
           </div>
 
           {/* Abstract Terminal Graphic */}
