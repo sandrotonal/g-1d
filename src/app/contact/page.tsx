@@ -241,7 +241,7 @@ export default function ContactPage() {
               className="block relative aspect-video w-full overflow-hidden rounded-lg grayscale opacity-60 hover:opacity-100 transition-opacity duration-700 bg-surface-container-low border border-outline-variant/20 group"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img alt="Ağrı Doğubeyazıt cityscape" className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80" />
+              <img alt="Mount Ağrı (Ağrı Dağı) - Turkey's highest peak" className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80" />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
               <div className="absolute bottom-6 left-6">
                 <div className="flex items-center gap-3">

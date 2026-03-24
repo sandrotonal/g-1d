@@ -141,37 +141,20 @@ export default function AboutPage() {
           {/* Timeline Vertical Line */}
           <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-primary to-transparent -translate-x-1/2 hidden md:block opacity-50"></div>
 
-          {/* Timeline Entry: Current - Education */}
+          {/* Timeline Entry 1: Most Recent - University */}
           <div className="relative mb-16 md:flex justify-between items-center group">
             <div className="md:w-[45%] mb-4 md:mb-0">
               <div className="glass-card p-6 rounded-xl border-primary/20 hover:border-primary/60 transition-all">
                 <span className="font-mono text-[10px] md:text-xs text-primary mb-2 block">2023 — Present</span>
                 <h3 className="font-headline text-xl md:text-2xl font-bold mb-2 text-on-surface">Bandırma 17 Eylül University</h3>
-                <p className="text-on-surface-variant text-sm">Studying Computer Engineering while building real-world SaaS projects and AI-integrated applications. Bridging academic knowledge with practical implementation.</p>
+                <p className="text-on-surface-variant text-sm">Computer Engineering student. Building real-world SaaS projects and AI-integrated applications alongside studies.</p>
               </div>
             </div>
             <div className="absolute left-0 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-background border-2 border-primary rounded-full z-10 hidden md:block">
               <div className="absolute inset-1 bg-primary scale-0 group-hover:scale-100 transition-transform"></div>
             </div>
             <div className="md:w-[45%] pl-4 md:pl-0">
-              <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest hidden md:block">Education // Engineering</span>
-            </div>
-          </div>
-
-          {/* Timeline Entry 1 */}
-          <div className="relative mb-16 md:flex justify-between items-center group">
-            <div className="md:w-[45%] mb-4 md:mb-0">
-              <div className="glass-card p-6 rounded-xl border-primary/20 hover:border-primary/60 transition-all">
-                <span className="font-mono text-[10px] md:text-xs text-primary mb-2 block">2023 — Present</span>
-                <h3 className="font-headline text-xl md:text-2xl font-bold mb-2 text-on-surface">Lead SaaS Architect</h3>
-                <p className="text-on-surface-variant text-sm">Developing end-to-end automation platforms for enterprise workflows, focusing on React/Node environments.</p>
-              </div>
-            </div>
-            <div className="absolute left-0 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-background border-2 border-primary rounded-full z-10 hidden md:block">
-              <div className="absolute inset-1 bg-primary scale-0 group-hover:scale-100 transition-transform"></div>
-            </div>
-            <div className="md:w-[45%] pl-4 md:pl-0">
-              <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest hidden md:block">Milestone // Active Project</span>
+              <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest hidden md:block">Education // Present</span>
             </div>
           </div>
 
@@ -181,31 +164,31 @@ export default function AboutPage() {
               <div className="glass-card p-6 rounded-xl border-secondary/20 hover:border-secondary/60 transition-all">
                 <span className="font-mono text-[10px] md:text-xs text-secondary mb-2 block">2022 — 2023</span>
                 <h3 className="font-headline text-xl md:text-2xl font-bold mb-2 text-on-surface">AI Integration Specialist</h3>
-                <p className="text-on-surface-variant text-sm">Pioneered custom GPT-based solutions for content management systems, improving output efficiency by 40%.</p>
+                <p className="text-on-surface-variant text-sm">Custom GPT-based solutions for content management systems. Improved output efficiency by 40%.</p>
               </div>
             </div>
             <div className="absolute left-0 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-background border-2 border-secondary rounded-full z-10 hidden md:block">
               <div className="absolute inset-1 bg-secondary scale-0 group-hover:scale-100 transition-transform"></div>
             </div>
             <div className="md:w-[45%] pl-4 md:pl-0 text-right">
-              <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest hidden md:block">Skill Evolution // LLM focus</span>
+              <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest hidden md:block">Skill Evolution</span>
             </div>
           </div>
 
-          {/* Timeline Entry 3 */}
+          {/* Timeline Entry 3: Oldest */}
           <div className="relative mb-16 md:flex justify-between items-center group">
             <div className="md:w-[45%] mb-4 md:mb-0">
               <div className="glass-card p-6 rounded-xl border-primary/20 hover:border-primary/60 transition-all">
                 <span className="font-mono text-[10px] md:text-xs text-primary mb-2 block">2020 — 2022</span>
                 <h3 className="font-headline text-xl md:text-2xl font-bold mb-2 text-on-surface">Frontend Engineering Studies</h3>
-                <p className="text-on-surface-variant text-sm">Deep dive into UI physics, responsive frameworks, and JavaScript fundamentals. First commercial deployments.</p>
+                <p className="text-on-surface-variant text-sm">UI physics, responsive frameworks, JavaScript fundamentals. First commercial deployments.</p>
               </div>
             </div>
             <div className="absolute left-0 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-background border-2 border-primary rounded-full z-10 hidden md:block">
               <div className="absolute inset-1 bg-primary scale-0 group-hover:scale-100 transition-transform"></div>
             </div>
             <div className="md:w-[45%] pl-4 md:pl-0">
-              <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest hidden md:block">Foundation // Web Core</span>
+              <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest hidden md:block">Foundation</span>
             </div>
           </div>
         </div>

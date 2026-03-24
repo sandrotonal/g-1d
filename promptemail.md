@@ -1,1 +1,1 @@
-kanka bır de about 
+kanka bır de about kısmındakı journey bolumunde sıralama ve tarıhler cok  alaksız ve mantıskzı olmus mantıklı bır sırlama ıle duzeltırmısın okul hayatım hala devam edeıyor onunla devam edıeyp gunumuze kadar devam edıp duzelt 

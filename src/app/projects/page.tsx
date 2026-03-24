@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { projects } from '@/data/projects';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -202,14 +203,14 @@ export default function ProjectsPage() {
       {/* System Message Call to Action */}
       <section className="mt-24 py-16 px-8 bg-surface-container-lowest border border-outline-variant/10 rounded-xl flex flex-col md:flex-row items-center justify-between gap-12">
         <div className="max-w-xl">
-          <h3 className="text-3xl font-headline font-bold mb-4 text-on-surface">System Status: Exploring New Frontiers</h3>
+          <h3 className="text-3xl font-headline font-bold mb-4 text-on-surface">System Status: Building Future</h3>
           <p className="text-on-surface-variant font-mono text-sm leading-relaxed">
-            I am currently looking for high-impact engineering roles where I can apply my architectural mindset to complex problems. If you have a challenge that needs precise execution, let&apos;s talk.
+            Computer Engineering student at Bandırma 17 Eylül University (2023-Present). Building SaaS projects and AI-integrated applications. If you have a challenge that needs precise execution, let&apos;s talk.
           </p>
         </div>
         <div className="flex flex-wrap gap-4">
-          <button className="bg-surface-bright text-on-surface px-8 py-3 font-mono text-xs hover:bg-primary hover:text-on-primary transition-all rounded-sm uppercase tracking-wider font-bold">VIEW_RESUME.PDF</button>
-          <button className="border border-primary text-primary px-8 py-3 font-mono text-xs hover:bg-primary/5 transition-all rounded-sm uppercase tracking-wider font-bold">TERMINAL_MODE</button>
+          <Link href="/about" className="bg-surface-bright text-on-surface px-8 py-3 font-mono text-xs hover:bg-primary hover:text-on-primary transition-all rounded-sm uppercase tracking-wider font-bold inline-block">VIEW_RESUME.PDF</Link>
+          <Link href="/contact" className="border border-primary text-primary px-8 py-3 font-mono text-xs hover:bg-primary/5 transition-all rounded-sm uppercase tracking-wider font-bold inline-block">TERMINAL_MODE</Link>
         </div>
       </section>
     </div>
