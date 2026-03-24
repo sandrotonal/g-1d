@@ -20,6 +20,13 @@ export default function ContactPage() {
     
     if (!formRef.current) return;
     
+    // Honeypot check - if this field is filled, it's a bot
+    const honeyPotField = (formRef.current.elements.namedItem('website') as HTMLInputElement)?.value;
+    if (honeyPotField) {
+      console.log('Bot detected - honeypot field filled');
+      return; // Silently fail for bots
+    }
+    
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
@@ -89,37 +96,57 @@ export default function ContactPage() {
               <span className="w-12 h-[1px] bg-primary"></span>
               TRANSMIT MESSAGE
             </h2>
-            <form ref={formRef} onSubmit={handleSubmit} className="space-y-8">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-8" aria-label="Contact form">
+              {/* Honeypot field - hidden from users */}
+              <div className="hidden" aria-hidden="true">
+                <label htmlFor="website">Website</label>
+                <input 
+                  name="website"
+                  id="website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+              
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-2 group">
-                  <label className="font-mono text-[10px] uppercase tracking-widest text-on-surface-variant group-focus-within:text-primary transition-colors">Identification</label>
+                  <label htmlFor="name" className="font-mono text-[10px] uppercase tracking-widest text-on-surface-variant group-focus-within:text-primary transition-colors">Identification</label>
                   <input 
+                    id="name"
                     name="name"
                     className="w-full bg-surface-container-lowest border-none py-4 px-4 font-mono text-sm placeholder:text-outline-variant transition-all focus:ring-0 focus:border-l-2 focus:border-primary outline-none" 
                     placeholder="YOUR NAME" 
                     type="text" 
                     required 
+                    aria-required="true"
+                    autoComplete="name"
                   />
                 </div>
                 <div className="space-y-2 group">
-                  <label className="font-mono text-[10px] uppercase tracking-widest text-on-surface-variant group-focus-within:text-primary transition-colors">Protocol Address</label>
+                  <label htmlFor="email" className="font-mono text-[10px] uppercase tracking-widest text-on-surface-variant group-focus-within:text-primary transition-colors">Protocol Address</label>
                   <input 
+                    id="email"
                     name="email"
                     className="w-full bg-surface-container-lowest border-none py-4 px-4 font-mono text-sm placeholder:text-outline-variant transition-all focus:ring-0 focus:border-l-2 focus:border-primary outline-none" 
                     placeholder="EMAIL@DOMAIN.COM" 
                     type="email" 
                     required 
+                    aria-required="true"
+                    autoComplete="email"
                   />
                 </div>
               </div>
               <div className="space-y-2 group">
-                <label className="font-mono text-[10px] uppercase tracking-widest text-on-surface-variant group-focus-within:text-primary transition-colors">Transmission Payload</label>
+                <label htmlFor="message" className="font-mono text-[10px] uppercase tracking-widest text-on-surface-variant group-focus-within:text-primary transition-colors">Transmission Payload</label>
                 <textarea 
+                  id="message"
                   name="message"
                   className="w-full bg-surface-container-lowest border-none py-4 px-4 font-mono text-sm placeholder:text-outline-variant transition-all focus:ring-0 focus:border-l-2 focus:border-primary outline-none resize-none" 
                   placeholder="DESCRIBE THE ARCHITECTURAL CHALLENGE..." 
                   rows={6} 
                   required
+                  aria-required="true"
                 ></textarea>
               </div>
               

@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useState, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { PostMetadata as BlogPost } from '@/utils/markdown';
@@ -10,8 +11,29 @@ interface BlogClientProps {
 }
 
 export default function BlogClient({ initialPosts }: BlogClientProps) {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  
   const featuredPost = initialPosts[0];
-  const regularPosts = initialPosts.slice(1);
+  
+  // Filter posts based on search and category
+  const filteredPosts = useMemo(() => {
+    return initialPosts.filter(post => {
+      const matchesSearch = searchTerm === '' || 
+        post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        post.tags?.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+      
+      const matchesCategory = !selectedCategory || post.category === selectedCategory;
+      
+      return matchesSearch && matchesCategory;
+    });
+  }, [initialPosts, searchTerm, selectedCategory]);
+  
+  const regularPosts = filteredPosts.slice(1);
+  
+  // Get unique categories
+  const categories = Array.from(new Set(initialPosts.map(post => post.category).filter((cat): cat is string => Boolean(cat))));
 
   return (
     <div className="max-w-screen-2xl mx-auto">
@@ -127,17 +149,50 @@ export default function BlogClient({ initialPosts }: BlogClientProps) {
 
         {/* Sidebar */}
         <aside className="lg:col-span-4 flex flex-col gap-12">
-          {/* Search Placeholder */}
-          <div className="bg-surface-container-lowest p-6 border-l-2 border-primary rounded-sm">
-            <label className="block text-xs font-mono text-primary uppercase mb-3 tracking-widest">Search Archive</label>
+          {/* Search & Filter */}
+          <div className="bg-surface-container-lowest p-6 border-l-2 border-primary rounded-sm space-y-4">
+            <label htmlFor="search-input" className="block text-xs font-mono text-primary uppercase mb-3 tracking-widest">Search Archive</label>
             <div className="relative">
               <input
+                id="search-input"
                 type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="QUERY_STRING..."
+                aria-label="Search blog posts"
                 className="w-full bg-surface-container-low border-none focus:ring-1 focus:ring-primary text-on-surface font-mono placeholder:text-outline-variant py-3 pl-4 pr-10 rounded-sm outline-none"
               />
               <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline-variant">search</span>
             </div>
+            {categories.length > 0 && (
+              <div className="pt-4 border-t border-outline-variant/20">
+                <span className="block text-xs font-mono text-on-surface-variant uppercase mb-3 tracking-widest">Filter by Category</span>
+                <div className="flex flex-wrap gap-2">
+                  <button
+                    onClick={() => setSelectedCategory(null)}
+                    className={`px-4 py-2 text-xs font-mono rounded-md transition-all border ${!selectedCategory ? 'bg-primary text-on-primary-fixed border-primary' : 'bg-surface-container-highest text-on-surface-variant border-transparent hover:border-primary/20 hover:text-primary'}`}
+                  >
+                    ALL
+                  </button>
+                  {categories.map((cat: string) => (
+                    <button
+                      key={cat}
+                      onClick={() => setSelectedCategory(cat)}
+                      className={`px-4 py-2 text-xs font-mono rounded-md transition-all border ${selectedCategory === cat ? 'bg-primary text-on-primary-fixed border-primary' : 'bg-surface-container-highest text-on-surface-variant border-transparent hover:border-primary/20 hover:text-primary'}`}
+                    >
+                      {cat}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+            {(searchTerm || selectedCategory) && (
+              <div className="pt-4 border-t border-outline-variant/20">
+                <p className="text-xs font-mono text-on-surface-variant">
+                  Showing {filteredPosts.length} of {initialPosts.length} posts
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Author Snippet */}
