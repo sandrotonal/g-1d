@@ -78,7 +78,8 @@ export default function BlogClient({ initialPosts }: BlogClientProps) {
                       src={featuredPost.coverImage}
                       alt={featuredPost.title}
                       fill
-                      unoptimized
+                      priority
+                      sizes="100vw"
                       className="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                     />
                   )}
@@ -124,7 +125,7 @@ export default function BlogClient({ initialPosts }: BlogClientProps) {
                       src={post.coverImage}
                       alt={post.title}
                       fill
-                      unoptimized
+                      sizes="(max-width: 768px) 100vw, 33vw"
                       className="w-full h-full object-cover opacity-50 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                     />
                   )}
@@ -202,7 +203,7 @@ export default function BlogClient({ initialPosts }: BlogClientProps) {
             </h3>
             <div className="flex flex-col gap-4">
               <div className="w-20 h-20 rounded-full bg-surface-container-high border-2 border-primary/20 p-1 overflow-hidden relative grayscale">
-                 <Image src="/images/author.jpg" alt="Author" fill unoptimized className="object-cover rounded-full" />
+                 <Image src="/images/author.jpg" alt="Author" fill sizes="80px" className="object-cover rounded-full" />
               </div>
               <p className="text-on-surface-variant text-sm leading-relaxed">
                 Ömer Özbay is a Full-Stack Engineer focused on architectural precision and high-performance system design. Building the future with obsidian and light.

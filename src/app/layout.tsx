@@ -102,6 +102,8 @@ export default function RootLayout({
     <html lang="tr" className="dark">
       <head>
         <meta name="google-site-verification" content="S4AmguZUsl3R0caFt-YZ0ztkck_dYM1yOZPH-j22X_4" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
         <style>{`
           .material-symbols-outlined {
@@ -110,6 +112,35 @@ export default function RootLayout({
             vertical-align: middle;
           }
         `}</style>
+        {/* JSON-LD Structured Data for SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Ömer Özbay",
+              "jobTitle": "Full-Stack Engineer",
+              "url": "https://gucluyumhe.dev",
+              "image": "https://gucluyumhe.dev/images/author.jpg",
+              "sameAs": [
+                "https://github.com/sandrotonal",
+                "https://x.com/gucluyumhe",
+                "https://wa.me/905314803809",
+                "https://t.me/islamakhachev"
+              ],
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Freelance"
+              },
+              "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "Bandırma 17 Eylül University"
+              },
+              "knowsAbout": ["Full-Stack Development", "React", "Next.js", "TypeScript", "Node.js", "AI Integration", "SaaS"]
+            })
+          }}
+        />
       </head>
       <body
         className={`${spaceGrotesk.variable} ${inter.variable} ${jetBrainsMono.variable} antialiased min-h-screen flex flex-col bg-background text-on-surface font-body selection:bg-primary/30 selection:text-primary-fixed`}

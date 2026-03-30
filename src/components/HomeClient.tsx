@@ -245,7 +245,7 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
                     src={project.image}
                     alt={project.title}
                     fill
-                    unoptimized
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
@@ -296,7 +296,7 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
                     src={post.coverImage}
                     alt={post.title}
                     fill
-                    unoptimized
+                    sizes="(max-width: 640px) 100vw, 192px"
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                   />
                 </div>

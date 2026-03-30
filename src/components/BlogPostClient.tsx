@@ -2,6 +2,7 @@
 
 import React, { useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { Post } from '@/utils/markdown';
 
@@ -72,9 +73,12 @@ export default function BlogPostClient({ postData }: BlogPostClientProps) {
       {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[400px] max-h-[716px] flex items-end justify-start overflow-hidden border-b border-outline-variant/10">
         <div className="absolute inset-0 z-0">
-          <img
+          <Image
             src={postData.coverImage || "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=80"}
             alt={postData.title}
+            fill
+            priority
+            sizes="100vw"
             className="w-full h-full object-cover opacity-40 grayscale"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
@@ -210,8 +214,10 @@ export default function BlogPostClient({ postData }: BlogPostClientProps) {
             <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center md:items-start text-center md:text-left">
               <div className="relative shrink-0 w-24 h-24">
                 <div className="absolute -inset-1 bg-primary blur opacity-20"></div>
-                <img
+                <Image
                   alt="Ömer Özbay"
+                  fill
+                  sizes="96px"
                   className="relative w-full h-full object-cover rounded-sm grayscale"
                   src="/images/author.jpg"
                 />
