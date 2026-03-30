@@ -46,7 +46,7 @@ export default function BlogClient({ initialPosts }: BlogClientProps) {
               animate={{ opacity: 1, y: 0 }}
               className="font-mono text-primary text-sm tracking-[0.3em] uppercase"
             >
-              Technical Journal // 2025
+              Technical Journal // 2026
             </motion.span>
             <motion.h1
               initial={{ opacity: 0, y: 10 }}
@@ -210,16 +210,20 @@ export default function BlogClient({ initialPosts }: BlogClientProps) {
             </div>
           </div>
 
-          {/* Categories Placeholder */}
+          {/* Categories */}
           <div className="flex flex-col gap-6">
             <h3 className="font-headline font-bold text-xl tracking-tight flex items-center gap-2 text-on-surface">
               <span className="w-4 h-4 bg-primary rounded-sm"></span> CATEGORIES
             </h3>
             <div className="flex flex-wrap gap-2">
-              {['Performance', 'Architecture', 'Frontend', 'Backend'].map(cat => (
-                 <span key={cat} className="px-4 py-2 bg-surface-container-highest text-on-surface-variant text-xs font-mono rounded-md hover:text-primary hover:bg-primary/10 transition-all cursor-pointer border border-transparent hover:border-primary/20">
+              {categories.map((cat: string) => (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(selectedCategory === cat ? null : cat)}
+                  className={`px-4 py-2 text-xs font-mono rounded-md transition-all border ${selectedCategory === cat ? 'bg-primary text-on-primary-fixed border-primary' : 'bg-surface-container-highest text-on-surface-variant border-transparent hover:border-primary/20 hover:text-primary'}`}
+                >
                   {cat}
-                 </span>
+                </button>
               ))}
             </div>
           </div>

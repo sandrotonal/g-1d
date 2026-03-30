@@ -10,6 +10,45 @@ interface BlogPostClientProps {
 }
 
 export default function BlogPostClient({ postData }: BlogPostClientProps) {
+  // Share function
+  const handleShare = async () => {
+    const shareData = {
+      title: postData.title,
+      text: postData.excerpt,
+      url: window.location.href,
+    };
+    
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        // User cancelled or error
+      }
+    } else {
+      // Fallback: copy to clipboard
+      await navigator.clipboard.writeText(window.location.href);
+      alert('Link copied to clipboard!');
+    }
+  };
+
+  // Bookmark function
+  const handleBookmark = () => {
+    if (typeof window !== 'undefined') {
+      const savedBookmarks = JSON.parse(localStorage.getItem('bookmarked_posts') || '[]');
+      const isBookmarked = savedBookmarks.includes(postData.id);
+      
+      if (isBookmarked) {
+        const updated = savedBookmarks.filter((id: string) => id !== postData.id);
+        localStorage.setItem('bookmarked_posts', JSON.stringify(updated));
+        alert('Bookmark removed!');
+      } else {
+        savedBookmarks.push(postData.id);
+        localStorage.setItem('bookmarked_posts', JSON.stringify(savedBookmarks));
+        alert('Article bookmarked!');
+      }
+    }
+  };
+
   useEffect(() => {
     // Basic syntax highlighting initialization could go here
   }, [postData]);
@@ -77,21 +116,72 @@ export default function BlogPostClient({ postData }: BlogPostClientProps) {
       {/* Article Content */}
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-12 md:py-20 flex flex-col lg:flex-row gap-12 lg:gap-16 relative">
 
-        {/* Floating Navigation (Left) - Desktop Only */}
+        {/* Floating Navigation - Desktop */}
         <aside className="hidden lg:flex flex-col w-12 sticky top-32 h-fit">
           <div className="flex flex-col gap-8 items-center text-on-surface-variant">
-            <Link href="/blog" className="hover:text-primary transition-colors group">
+            <Link href="/blog" aria-label="Go back to blog" className="hover:text-primary transition-colors group">
               <span className="material-symbols-outlined">arrow_back</span>
             </Link>
             <div className="w-[1px] h-12 bg-outline-variant/30"></div>
-            <button className="hover:text-primary transition-colors">
+            <button onClick={handleShare} aria-label="Share this article" className="hover:text-primary transition-colors">
               <span className="material-symbols-outlined">share</span>
             </button>
-            <button className="hover:text-primary transition-colors">
+            <button onClick={handleBookmark} aria-label="Bookmark this article" className="hover:text-primary transition-colors">
               <span className="material-symbols-outlined">bookmark</span>
             </button>
           </div>
         </aside>
+
+        {/* Mobile Floating Actions - Hidden by default, shown when menu is open */}
+        <div id="mobile-actions-menu" className="hidden fixed right-4 bottom-20 z-50 flex flex-col gap-2">
+          <button 
+            onClick={handleShare} 
+            aria-label="Share this article"
+            className="w-10 h-10 bg-surface-container-high border border-outline-variant/20 text-primary flex items-center justify-center rounded-full shadow-lg hover:bg-primary hover:text-on-primary-fixed transition-all active:scale-95"
+          >
+            <span className="material-symbols-outlined text-lg">share</span>
+          </button>
+          <button 
+            onClick={handleBookmark} 
+            aria-label="Bookmark this article"
+            className="w-10 h-10 bg-surface-container-high border border-outline-variant/20 text-primary flex items-center justify-center rounded-full shadow-lg hover:bg-primary hover:text-on-primary-fixed transition-all active:scale-95"
+          >
+            <span className="material-symbols-outlined text-lg">bookmark</span>
+          </button>
+          <button 
+            onClick={() => {
+              const menu = document.getElementById('mobile-actions-menu');
+              if (menu) menu.classList.add('hidden');
+            }}
+            aria-label="More options"
+            className="w-10 h-10 bg-surface-container-high border border-outline-variant/20 text-primary flex items-center justify-center rounded-full shadow-lg hover:bg-primary hover:text-on-primary-fixed transition-all active:scale-95"
+          >
+            <span className="material-symbols-outlined text-lg">more_horiz</span>
+          </button>
+          <button 
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+              const menu = document.getElementById('mobile-actions-menu');
+              if (menu) menu.classList.add('hidden');
+            }}
+            aria-label="Scroll to top"
+            className="w-10 h-10 bg-surface-container-high border border-outline-variant/20 text-primary flex items-center justify-center rounded-full shadow-lg hover:bg-primary hover:text-on-primary-fixed transition-all active:scale-95"
+          >
+            <span className="material-symbols-outlined text-lg">expand_less</span>
+          </button>
+        </div>
+        
+        {/* Mobile Menu Toggle Button - Always visible */}
+        <button 
+          onClick={() => {
+            const menu = document.getElementById('mobile-actions-menu');
+            if (menu) menu.classList.toggle('hidden');
+          }}
+          aria-label="Open actions menu"
+          className="lg:hidden fixed right-4 bottom-20 w-10 h-10 bg-surface-container-high border border-outline-variant/20 text-primary flex items-center justify-center rounded-full shadow-lg hover:bg-primary hover:text-on-primary-fixed transition-all active:scale-95 z-[60]"
+        >
+          <span className="material-symbols-outlined text-lg">keyboard_arrow_up</span>
+        </button>
 
         {/* Mobile Back Button */}
         <div className="lg:hidden mb-4">
@@ -232,14 +322,6 @@ export default function BlogPostClient({ postData }: BlogPostClientProps) {
           </div>
         </div>
       </section>
-
-      {/* Scroll to top FAB (Mobile mainly) */}
-      <button
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="fixed bottom-6 md:bottom-8 right-6 md:right-8 w-10 md:w-12 h-10 md:h-12 bg-primary text-on-primary-fixed flex items-center justify-center rounded-sm shadow-2xl hover:scale-110 active:scale-95 transition-all z-40 lg:hidden"
-      >
-        <span className="material-symbols-outlined">expand_less</span>
-      </button>
     </main>
   );
 }

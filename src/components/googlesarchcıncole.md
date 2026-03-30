@@ -1,4 +1,13 @@
-<meta name="google-site-verification" content="S4AmguZUsl3R0caFt-YZ0ztkck_dYM1yOZPH-j22X_4" />
+"Neden Her Developer Kendi SEO Altyapısını Kurmalı?"
+Vibe: "Tecrübe aktarımı".
+
+İçerik: Bugün yaşadığımız süreci anlat. "Google Search Console'a site nasıl bağlanır?", "Sitemap kazası (https://www.google.com/search?q=example.com hatası) nasıl çözülür?" ve "Next.js projelerinde meta taglerin önemi" gibi konuları teknik ama samimi bir dille yaz.
+kanka bu konu ıle ılgılı bır tane olustur 
+
+ guzel bır blog  olusutr ve yayınla kanka öncekı blog sayfları gıbı olsun 
 
 
-kanka bu google search concole seyı  ekler mıısn bunu 
+kanka ayrıca yıl zaman kavramnlarına dıkkat eder mısın lutfen cunku
+
+az önce yayınladıgımız blog 2025 yılında gozunuyor ama biz 20236 yılındayız 
+
