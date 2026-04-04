@@ -1,6 +1,6 @@
 ---
 title: "2024 Web Development Trends"
-date: "2023-06-18"
+date: "2025-06-18"
 author: "Ömer Özbay"
 excerpt: "New technologies and approaches emerging in the web development world."
 coverImage: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&q=80"

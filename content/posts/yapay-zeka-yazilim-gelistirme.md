@@ -1,6 +1,6 @@
 ---
 title: "AI in Software Development: Opportunities and Challenges"
-date: "2023-10-15"
+date: "2025-10-15"
 author: "Ömer Özbay"
 excerpt: "Integration of AI technologies into software development processes, advantages, and challenges faced."
 coverImage: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80"

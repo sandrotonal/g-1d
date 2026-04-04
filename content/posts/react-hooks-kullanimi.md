@@ -1,6 +1,6 @@
 ---
 title: "React Hooks: Modern Component Development"
-date: "2023-09-15"
+date: "2025-09-15"
 author: "Ömer Özbay"
 excerpt: "Techniques for writing cleaner and more reusable components using React Hooks."
 coverImage: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80"

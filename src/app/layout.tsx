@@ -126,7 +126,6 @@ export default function RootLayout({
               "sameAs": [
                 "https://github.com/sandrotonal",
                 "https://x.com/gucluyumhe",
-                "https://wa.me/905314803809",
                 "https://t.me/islamakhachev"
               ],
               "worksFor": {

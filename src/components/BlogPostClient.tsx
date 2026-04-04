@@ -229,8 +229,7 @@ export default function BlogPostClient({ postData }: BlogPostClientProps) {
                   Full-Stack Engineer specialized in bridging high-performance backend architectures with pixel-perfect frontend experiences. Building the future with AI and modern web technologies.
                 </p>
                 <div className="mt-6 flex gap-4 justify-center md:justify-start">
-                  <a href="https://x.com/gucluyumhe" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-primary transition-colors font-mono text-[10px] md:text-xs uppercase tracking-tighter">Twitter / X</a>
-                  <a href="https://wa.me/905314803809" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-primary transition-colors font-mono text-[10px] md:text-xs uppercase tracking-tighter">WhatsApp</a>
+                  <a href="https://x.com/gucluyumhe" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-primary transition-colors font-mono text-[10px] md:text-xs uppercase tracking-tighter">X</a>
                   <a href="https://t.me/islamakhachev" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-primary transition-colors font-mono text-[10px] md:text-xs uppercase tracking-tighter">Telegram</a>
                   <a href="https://github.com/sandrotonal" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-primary transition-colors font-mono text-[10px] md:text-xs uppercase tracking-tighter">Github</a>
                 </div>

@@ -1,6 +1,6 @@
 ---
 title: "Architecting Enterprise-Grade RESTful APIs: A Comprehensive Guide to Node.js and Express"
-date: "2023-10-20"
+date: "2025-10-20"
 author: "Omer Ozbay"
 excerpt: "An in-depth exploration of architectural patterns, security considerations, and scalability strategies for building production-ready RESTful APIs using Node.js and Express framework."
 coverImage: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=800&q=80"

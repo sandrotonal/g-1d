@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FaWhatsapp, FaTelegramPlane, FaGithub, FaTwitter } from 'react-icons/fa';
+import { FaTelegramPlane, FaGithub, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -16,10 +16,7 @@ const Footer = () => {
             GitHub
           </Link>
           <Link href="https://x.com/gucluyumhe" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-            Twitter/X
-          </Link>
-          <Link href="https://wa.me/905314803809" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-            WhatsApp
+            X
           </Link>
           <Link href="https://t.me/islamakhachev" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
             Telegram
@@ -36,9 +33,6 @@ const Footer = () => {
           <Link href="https://x.com/gucluyumhe" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-8 md:h-8 rounded-full border border-outline-variant/30 flex items-center justify-center hover:border-primary hover:text-primary transition-all cursor-pointer">
              <FaTwitter className="text-sm" />
           </Link>
-          <a href="https://wa.me/905314803809" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-8 md:h-8 rounded-full border border-outline-variant/30 flex items-center justify-center hover:border-green-400 hover:text-green-400 transition-all cursor-pointer">
-             <FaWhatsapp className="text-sm" />
-          </a>
           <a href="https://t.me/islamakhachev" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-8 md:h-8 rounded-full border border-outline-variant/30 flex items-center justify-center hover:border-blue-400 hover:text-blue-400 transition-all cursor-pointer">
              <FaTelegramPlane className="text-sm" />
           </a>

@@ -1,6 +1,6 @@
 ---
 title: "Application Development Process: From Start to Deployment"
-date: "2023-08-10"
+date: "2025-08-10"
 author: "Ömer Özbay"
 excerpt: "Let's examine step by step how an idea turns into a working application."
 coverImage: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80"

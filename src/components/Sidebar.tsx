@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { FaWhatsapp, FaTelegramPlane } from 'react-icons/fa';
+import { FaTelegramPlane, FaTwitter } from 'react-icons/fa';
 
 const Sidebar = () => {
   return (
@@ -9,9 +9,9 @@ const Sidebar = () => {
         <span className="material-symbols-outlined text-on-surface-variant opacity-50 group-hover:opacity-100 group-hover:text-primary transition-all scale-110">code</span>
         <span className="font-mono text-[10px] uppercase tracking-widest text-on-surface-variant opacity-50 group-hover:opacity-100 group-hover:text-primary">GitHub</span>
       </Link>
-      <a href="https://wa.me/905314803809" target="_blank" rel="noopener noreferrer" aria-label="Contact me via WhatsApp" className="flex flex-col items-center gap-1 group cursor-pointer hover:translate-x-1 duration-300">
-        <FaWhatsapp className="text-on-surface-variant opacity-50 group-hover:opacity-100 group-hover:text-primary transition-all text-2xl" />
-        <span className="font-mono text-[10px] uppercase tracking-widest text-on-surface-variant opacity-50 group-hover:opacity-100 group-hover:text-primary">WhatsApp</span>
+      <a href="https://x.com/gucluyumhe" target="_blank" rel="noopener noreferrer" aria-label="Follow me on X (Twitter)" className="flex flex-col items-center gap-1 group cursor-pointer hover:translate-x-1 duration-300">
+        <FaTwitter className="text-on-surface-variant opacity-50 group-hover:opacity-100 group-hover:text-primary transition-all text-2xl" />
+        <span className="font-mono text-[10px] uppercase tracking-widest text-on-surface-variant opacity-50 group-hover:opacity-100 group-hover:text-primary">X</span>
       </a>
       <a href="https://t.me/islamakhachev" target="_blank" rel="noopener noreferrer" aria-label="Contact me via Telegram" className="flex flex-col items-center gap-1 group cursor-pointer hover:translate-x-1 duration-300">
         <FaTelegramPlane className="text-on-surface-variant opacity-50 group-hover:opacity-100 group-hover:text-primary transition-all text-2xl" />

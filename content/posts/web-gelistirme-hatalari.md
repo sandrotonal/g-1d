@@ -1,6 +1,6 @@
 ---
 title: "Common Web Development Mistakes and Solutions"
-date: "2023-07-22"
+date: "2025-07-22"
 author: "Ömer Özbay"
 excerpt: "Common mistakes made during web development and how to avoid them."
 coverImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"

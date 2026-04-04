@@ -1,6 +1,6 @@
 ---
 title: "Architecting Cross-Platform Mobile Solutions: Strategic Frameworks for Enterprise-Grade Applications"
-date: "2023-12-01"
+date: "2025-12-01"
 author: "Omer Ozbay"
 excerpt: "An in-depth examination of architectural decision-making processes, platform-specific optimization strategies, and scalable development methodologies for modern mobile ecosystems."
 coverImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80"

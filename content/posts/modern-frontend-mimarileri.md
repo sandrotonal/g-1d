@@ -1,6 +1,6 @@
 ---
 title: "Frontend Architecture at Scale: Distributed Systems, Performance Engineering, and the Evolution of Component-Based Design"
-date: "2023-11-05"
+date: "2025-11-05"
 author: "Omer Ozbay"
 excerpt: "A comprehensive technical deep-dive into modern frontend architectural patterns, micro-frontend decomposition strategies, and advanced performance optimization techniques for enterprise-scale applications."
 coverImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80"

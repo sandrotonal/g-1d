@@ -1,6 +1,6 @@
 ---
 title: "AI and Web Development: The Evolving Relationship"
-date: "2023-05-30"
+date: "2025-05-30"
 author: "Ömer Özbay"
 excerpt: "Integration of AI technologies into web development processes and future vision."
 coverImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80"

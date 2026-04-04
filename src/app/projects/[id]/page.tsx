@@ -141,11 +141,11 @@ export default function ProjectDetailPage() {
                   >
                     <Image 
                       src={project.gallery?.[currentSlide] || project.image} 
-                      alt={project.title} 
+                      alt={`${project.title} screenshot ${currentSlide + 1}`} 
                       fill 
-                      unoptimized 
+                      sizes="(max-width: 768px) 100vw, 800px"
                       className="object-cover" 
-                      priority 
+                      priority
                     />
                   </motion.div>
                 </AnimatePresence>
@@ -220,9 +220,9 @@ export default function ProjectDetailPage() {
                     >
                       <Image 
                         src={img} 
-                        alt={`Thumb ${idx}`} 
-                        fill 
-                        unoptimized 
+                        alt={`${project.title} thumbnail ${idx + 1}`} 
+                        fill
+                        sizes="64px"
                         className="object-cover" 
                       />
                       {currentSlide === idx && (
@@ -342,9 +342,9 @@ export default function ProjectDetailPage() {
                 >
                   <Image 
                     src={project.gallery[currentSlide]} 
-                    alt={`Gallery ${currentSlide + 1}`} 
-                    fill 
-                    unoptimized 
+                    alt={`${project.title} gallery image ${currentSlide + 1}`} 
+                    fill
+                    sizes="(max-width: 768px) 100vw, 500px"
                     className="object-cover" 
                   />
                 </motion.div>
@@ -406,7 +406,7 @@ export default function ProjectDetailPage() {
                     : 'border-outline-variant/30 hover:border-primary/50'
                 }`}
               >
-                <Image src={img} alt={`Nav ${idx}`} fill unoptimized className="object-cover" />
+                <Image src={img} alt={`${project.title} nav ${idx}`} fill sizes="64px" className="object-cover" />
               </button>
             ))}
           </div>
@@ -436,7 +436,7 @@ export default function ProjectDetailPage() {
             <span className="material-symbols-outlined text-2xl">close</span>
           </button>
           <div className="relative max-w-4xl w-full aspect-[9/16] max-h-[85vh]" onClick={(e) => e.stopPropagation()}>
-            <Image src={project.gallery[lightboxIndex]} alt="Lightbox" fill unoptimized className="object-contain" />
+            <Image src={project.gallery[lightboxIndex]} alt={`${project.title} lightbox view`} fill sizes="100vw" className="object-contain" />
           </div>
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 font-mono text-sm text-white bg-black/50 px-4 py-2 rounded-full">
             {lightboxIndex + 1} / {project.gallery.length}

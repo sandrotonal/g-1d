@@ -114,7 +114,7 @@ export default function ProjectsPage() {
                     ) : patternIndex === 1 ? (
                         <div className="glass-card p-8 h-full flex flex-col">
                            <div className="aspect-video mb-6 overflow-hidden bg-surface-container-low border border-outline-variant/20 relative">
-                                <Image src={project.image} alt={project.title} fill unoptimized className="object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 grayscale group-hover:grayscale-0"/>
+                                <Image src={project.image} alt={`${project.title} project screenshot`} fill sizes="(max-width: 768px) 100vw, 400px" className="object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 grayscale group-hover:grayscale-0"/>
                            </div>
                            <h2 className="text-2xl font-headline font-bold tracking-tight mb-4 text-on-surface">{project.title}</h2>
                            <p className="text-on-surface-variant text-sm mb-6 flex-grow line-clamp-2">{project.description}</p>
@@ -177,7 +177,7 @@ export default function ProjectsPage() {
                                  </div>
                                </div>
                                <div className="relative rounded-lg overflow-hidden border border-outline-variant/30 hidden md:block">
-                                  <Image src={project.image} alt={project.title} fill unoptimized className="object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 grayscale group-hover:grayscale-0"/>
+                                  <Image src={project.image} alt={`${project.title} project preview`} fill sizes="(max-width: 768px) 100vw, 500px" className="object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 grayscale group-hover:grayscale-0"/>
                                   <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
                                </div>
                              </div>
