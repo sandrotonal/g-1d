@@ -27,12 +27,12 @@ export default function AboutPage() {
       {/* Section 1: The Architect behind the Code */}
       <section className="mb-32 pt-8">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          <div className="lg:col-span-7 space-y-10">
-            <div className="space-y-4">
+          <div className="lg:col-span-7 space-y-10 text-center lg:text-left flex flex-col items-center lg:items-start">
+            <div className="space-y-4 w-full flex flex-col items-center lg:items-start">
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="flex items-center gap-3"
+                className="flex items-center gap-3 justify-center lg:justify-start"
               >
                 <div className="h-[1px] w-8 bg-primary"></div>
                 <span className="font-mono text-primary text-xs tracking-[0.3em] uppercase">
@@ -45,7 +45,7 @@ export default function AboutPage() {
                 transition={{ delay: 0.1 }}
                 className="text-5xl md:text-6xl lg:text-7xl font-headline font-bold tracking-tighter text-on-surface leading-[1.1]"
               >
-                The Architect <br className="hidden md:block" />
+                The Architect <br className="hidden lg:block" />
                 <span className="text-primary italic font-light">behind the Code.</span>
               </motion.h1>
             </div>
@@ -55,7 +55,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="space-y-8 pl-5 md:pl-8 border-l-[3px] border-primary/20"
+              className="space-y-8 pl-0 lg:pl-8 border-l-0 lg:border-l-[3px] border-primary/20 flex flex-col items-center lg:items-start"
             >
               <p className="text-xl md:text-2xl font-headline font-medium text-on-surface leading-snug tracking-tight max-w-2xl">
                 I am a developer based in <span className="text-primary">Ağrı, Turkey</span>, 
@@ -71,7 +71,7 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className="pt-4 flex flex-wrap items-center gap-4">
+              <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-4">
                  <div className="flex items-center gap-2">
                    <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></div>
                    <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest">System_Operational</span>
@@ -82,13 +82,13 @@ export default function AboutPage() {
             </motion.div>
           </div>
 
-          <div className="lg:col-span-5 relative mt-8 lg:mt-0 px-4 sm:px-12 md:px-24 lg:px-0">
-            {/* Elegant Image Container without heavy borders */}
+          <div className="lg:col-span-5 relative mt-12 lg:mt-0 px-4 sm:px-12 md:px-24 lg:px-0 flex justify-center">
+            {/* Elegant Circular Image Container with Hover Glow */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="aspect-[4/5] overflow-hidden rounded-3xl relative group"
+              className="aspect-square w-full max-w-[400px] overflow-hidden rounded-full relative group border-4 border-outline-variant/10 hover:border-primary/50 transition-all duration-500 shadow-[0_0_50px_rgba(var(--color-primary),0.1)] hover:shadow-[0_0_80px_rgba(var(--color-primary),0.3)]"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none"></div>
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -97,17 +97,12 @@ export default function AboutPage() {
                 className="w-full h-full object-cover grayscale contrast-110 opacity-90 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700" 
                 src="/images/profile.jpg" 
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent z-10 pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent z-10 pointer-events-none"></div>
               
-              {/* Clean Overlay Info inside the image */}
-              <div className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8 right-6 sm:right-8 z-20 flex justify-between items-end">
-                <div>
-                  <h3 className="font-headline font-bold text-2xl sm:text-3xl text-white group-hover:text-primary transition-colors">Ömer Özbay</h3>
-                  <p className="font-mono text-[10px] sm:text-xs text-white/70 uppercase tracking-widest mt-1">Full-Stack Engineer</p>
-                </div>
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/20 bg-black/20 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-primary group-hover:border-primary transition-all duration-300 shadow-lg">
-                  <span className="material-symbols-outlined text-lg sm:text-xl">architecture</span>
-                </div>
+              {/* Clean Overlay Info inside the circular image */}
+              <div className="absolute inset-0 z-20 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/40 backdrop-blur-[2px]">
+                <h3 className="font-headline font-bold text-2xl text-white">Ömer Özbay</h3>
+                <p className="font-mono text-[10px] text-primary uppercase tracking-widest mt-1 font-bold">Full-Stack Engineer</p>
               </div>
             </motion.div>
           </div>
