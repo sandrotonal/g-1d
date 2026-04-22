@@ -255,33 +255,37 @@ export default function ProjectDetailPage() {
           {/* Right: Project Details */}
           <div className="space-y-8">
             {/* About Section */}
-            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 hover:bg-white/[0.07] transition-colors group/card">
-              <h3 className="font-headline text-xl font-bold text-on-surface mb-6 flex items-center gap-3">
-                <span className="material-symbols-outlined text-primary group-hover/card:scale-110 transition-transform">info</span>
-                About This Project
-              </h3>
-              <p className="text-on-surface-variant text-base leading-relaxed font-light">
+            <div className="space-y-4 pt-4">
+              <div className="flex items-center gap-3">
+                <span className="material-symbols-outlined text-primary text-xl">info</span>
+                <h3 className="font-headline text-lg font-bold text-on-surface uppercase tracking-wider">
+                  About This Project
+                </h3>
+              </div>
+              <p className="text-on-surface-variant text-base leading-relaxed font-light pl-8 border-l border-primary/20">
                 {project.longDescription || project.description}
               </p>
             </div>
 
             {/* Key Features */}
             {project.features && (
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 hover:bg-white/[0.07] transition-colors group/card">
-                <h3 className="font-headline text-xl font-bold text-on-surface mb-6 flex items-center gap-3">
-                  <span className="material-symbols-outlined text-primary group-hover/card:scale-110 transition-transform">star</span>
-                  Key Features
-                </h3>
-                <div className="grid grid-cols-1 gap-4">
+              <div className="space-y-6 pt-8 border-t border-outline-variant/10">
+                <div className="flex items-center gap-3">
+                  <span className="material-symbols-outlined text-primary text-xl">star</span>
+                  <h3 className="font-headline text-lg font-bold text-on-surface uppercase tracking-wider">
+                    Key Features
+                  </h3>
+                </div>
+                <div className="grid grid-cols-1 gap-6 pl-8">
                   {project.features.slice(0, 4).map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-4 p-4 bg-white/[0.03] border border-white/5 rounded-xl hover:bg-white/[0.08] transition-all">
-                      <span className="material-symbols-outlined text-primary text-base">check_circle</span>
-                      <span className="text-sm text-on-surface-variant font-light">{feature}</span>
+                    <div key={idx} className="flex items-start gap-4 group/item">
+                      <span className="material-symbols-outlined text-primary/40 text-base group-hover/item:text-primary transition-colors">check_circle</span>
+                      <span className="text-sm text-on-surface-variant font-light group-hover/item:text-on-surface transition-colors">{feature}</span>
                     </div>
                   ))}
                 </div>
                 {project.features.length > 4 && (
-                  <button onClick={() => setActiveTab('gallery')} className="mt-6 text-primary text-xs font-mono uppercase hover:underline flex items-center gap-2 group/btn">
+                  <button onClick={() => setActiveTab('gallery')} className="ml-8 text-primary text-[10px] font-mono uppercase hover:underline flex items-center gap-2 group/btn">
                     View all {project.features.length} features <span className="group-hover:translate-x-1 transition-transform">→</span>
                   </button>
                 )}
@@ -289,14 +293,16 @@ export default function ProjectDetailPage() {
             )}
 
             {/* Tech Stack */}
-            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 hover:bg-white/[0.07] transition-colors group/card">
-              <h3 className="font-headline text-xl font-bold text-on-surface mb-6 flex items-center gap-3">
-                <span className="material-symbols-outlined text-primary group-hover/card:scale-110 transition-transform">code</span>
-                Tech Stack
-              </h3>
-              <div className="flex flex-wrap gap-3">
+            <div className="space-y-6 pt-8 border-t border-outline-variant/10">
+              <div className="flex items-center gap-3">
+                <span className="material-symbols-outlined text-primary text-xl">code</span>
+                <h3 className="font-headline text-lg font-bold text-on-surface uppercase tracking-wider">
+                  Tech Stack
+                </h3>
+              </div>
+              <div className="flex flex-wrap gap-2 pl-8">
                 {project.technologies.map((tech) => (
-                  <span key={tech} className="px-4 py-2 bg-white/[0.05] text-on-surface-variant text-xs font-mono rounded-lg border border-white/10 hover:border-primary/50 transition-colors">
+                  <span key={tech} className="px-3 py-1 bg-surface-container-high/50 text-on-surface-variant text-[10px] font-mono rounded-sm border border-outline-variant/10">
                     {tech}
                   </span>
                 ))}
@@ -304,21 +310,18 @@ export default function ProjectDetailPage() {
             </div>
 
             {/* Project Stats */}
-            <div className="grid grid-cols-3 gap-4">
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-center hover:bg-white/[0.07] transition-colors">
-                <span className="material-symbols-outlined text-primary text-2xl mb-3">image</span>
-                <div className="font-headline text-2xl font-bold text-on-surface">{project.gallery?.length || 0}</div>
-                <div className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mt-1">Screens</div>
+            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-outline-variant/10">
+              <div className="text-left">
+                <div className="font-headline text-3xl font-bold text-on-surface">{project.gallery?.length || 0}</div>
+                <div className="font-mono text-[9px] text-on-surface-variant uppercase tracking-widest mt-1">Screens</div>
               </div>
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-center hover:bg-white/[0.07] transition-colors">
-                <span className="material-symbols-outlined text-primary text-2xl mb-3">videocam</span>
-                <div className="font-headline text-2xl font-bold text-on-surface">{project.videos?.length || 0}</div>
-                <div className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mt-1">Videos</div>
+              <div className="text-left">
+                <div className="font-headline text-3xl font-bold text-on-surface">{project.videos?.length || 0}</div>
+                <div className="font-mono text-[9px] text-on-surface-variant uppercase tracking-widest mt-1">Videos</div>
               </div>
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-center hover:bg-white/[0.07] transition-colors">
-                <span className="material-symbols-outlined text-primary text-2xl mb-3">checklist</span>
-                <div className="font-headline text-2xl font-bold text-on-surface">{project.features?.length || 0}</div>
-                <div className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mt-1">Features</div>
+              <div className="text-left">
+                <div className="font-headline text-3xl font-bold text-on-surface">{project.features?.length || 0}</div>
+                <div className="font-mono text-[9px] text-on-surface-variant uppercase tracking-widest mt-1">Features</div>
               </div>
             </div>
           </div>
