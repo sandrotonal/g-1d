@@ -262,7 +262,7 @@ export default function ProjectDetailPage() {
                   About This Project
                 </h3>
               </div>
-              <p className="text-on-surface-variant text-base leading-relaxed font-light pl-8 border-l border-primary/20">
+              <p className="text-on-surface-variant text-base leading-relaxed font-light">
                 {project.longDescription || project.description}
               </p>
             </div>
@@ -276,16 +276,16 @@ export default function ProjectDetailPage() {
                     Key Features
                   </h3>
                 </div>
-                <div className="grid grid-cols-1 gap-6 pl-8">
+                <div className="grid grid-cols-1 gap-4">
                   {project.features.slice(0, 4).map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-4 group/item">
-                      <span className="material-symbols-outlined text-primary/40 text-base group-hover/item:text-primary transition-colors">check_circle</span>
+                    <div key={idx} className="flex items-center gap-4 group/item">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary/40 group-hover/item:bg-primary transition-colors"></div>
                       <span className="text-sm text-on-surface-variant font-light group-hover/item:text-on-surface transition-colors">{feature}</span>
                     </div>
                   ))}
                 </div>
                 {project.features.length > 4 && (
-                  <button onClick={() => setActiveTab('gallery')} className="ml-8 text-primary text-[10px] font-mono uppercase hover:underline flex items-center gap-2 group/btn">
+                  <button onClick={() => setActiveTab('gallery')} className="text-primary text-[10px] font-mono uppercase hover:underline flex items-center gap-2 group/btn">
                     View all {project.features.length} features <span className="group-hover:translate-x-1 transition-transform">→</span>
                   </button>
                 )}
@@ -300,9 +300,9 @@ export default function ProjectDetailPage() {
                   Tech Stack
                 </h3>
               </div>
-              <div className="flex flex-wrap gap-2 pl-8">
+              <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech) => (
-                  <span key={tech} className="px-3 py-1 bg-surface-container-high/50 text-on-surface-variant text-[10px] font-mono rounded-sm border border-outline-variant/10">
+                  <span key={tech} className="px-3 py-1 bg-surface-container-high/30 text-on-surface-variant text-[10px] font-mono rounded-sm border border-outline-variant/10">
                     {tech}
                   </span>
                 ))}
@@ -310,18 +310,18 @@ export default function ProjectDetailPage() {
             </div>
 
             {/* Project Stats */}
-            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-outline-variant/10">
-              <div className="text-left">
-                <div className="font-headline text-3xl font-bold text-on-surface">{project.gallery?.length || 0}</div>
-                <div className="font-mono text-[9px] text-on-surface-variant uppercase tracking-widest mt-1">Screens</div>
+            <div className="grid grid-cols-3 gap-4 pt-10 border-t border-outline-variant/10">
+              <div className="text-center group/stat">
+                <div className="font-headline text-4xl font-bold text-on-surface tracking-tighter group-hover/stat:text-primary transition-colors">{project.gallery?.length || 0}</div>
+                <div className="font-mono text-[9px] text-on-surface-variant uppercase tracking-[0.2em] mt-2">Screens</div>
               </div>
-              <div className="text-left">
-                <div className="font-headline text-3xl font-bold text-on-surface">{project.videos?.length || 0}</div>
-                <div className="font-mono text-[9px] text-on-surface-variant uppercase tracking-widest mt-1">Videos</div>
+              <div className="text-center group/stat border-x border-outline-variant/10">
+                <div className="font-headline text-4xl font-bold text-on-surface tracking-tighter group-hover/stat:text-primary transition-colors">{project.videos?.length || 0}</div>
+                <div className="font-mono text-[9px] text-on-surface-variant uppercase tracking-[0.2em] mt-2">Videos</div>
               </div>
-              <div className="text-left">
-                <div className="font-headline text-3xl font-bold text-on-surface">{project.features?.length || 0}</div>
-                <div className="font-mono text-[9px] text-on-surface-variant uppercase tracking-widest mt-1">Features</div>
+              <div className="text-center group/stat">
+                <div className="font-headline text-4xl font-bold text-on-surface tracking-tighter group-hover/stat:text-primary transition-colors">{project.features?.length || 0}</div>
+                <div className="font-mono text-[9px] text-on-surface-variant uppercase tracking-[0.2em] mt-2">Features</div>
               </div>
             </div>
           </div>
